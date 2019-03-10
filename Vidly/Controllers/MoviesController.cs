@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
@@ -10,55 +11,39 @@ namespace Vidly.Controllers
 {
 	public class MoviesController : Controller
 	{
-		// GET: Movies/Random
-		public ActionResult Random()
+		private ApplicationDbContext _context;
+
+		public MoviesController()
 		{
-			var movie = new Movie { Name = "Shrek" };
-
-			var customers = new List<Customer>
-			{
-				new Customer { Name = "Customer 1"},
-				new Customer { Name = "Customer 2"}
-			};
-
-			var vm = new RandomMovieViewModel
-			{
-				Movie = movie,
-				Customers = customers
-			};
-
-			return View(vm);
+			_context = new ApplicationDbContext();
 		}
 
-		//  GET: Movies/Edit/{id}
-		public ActionResult Edit(int id)
+		protected override void Dispose(bool disposing)
 		{
-			return Content("Edited");
+			_context.Dispose();
+		}
+
+		//  GET: Movies/Details/{id}
+		public ActionResult Details(int id)
+		{
+			var movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(c => c.Id == id);
+
+			if (movie == null)
+				return HttpNotFound();
+
+			return View(movie);
 		}
 
 		//GET: Movies
 		[Route("movies")]
 		public ActionResult Movies()
 		{
-			var movies = new List<Movie>
-			{
-				new Movie {Name = "Shrek" },
-				new Movie {Name = "Wall-e" }
-			};
-
 			var vm = new MoviesViewModel
 			{
-				Movies = movies
+				Movies = _context.Movies.Include(m => m.Genre).ToList()
 			};
 
 			return View(vm);
-		}
-
-		//GET: Movies/ByReleaseDate/{year}/{month}
-		[Route("movies/released/{year:regex(\\d{4}):range(1900,2019)}/{month:regex(\\d{2}):range(1,12)}")]
-		public ActionResult ByReleaseYear(int year, int month)
-		{
-			return Content(year + " | " + month);
 		}
     }
 }
