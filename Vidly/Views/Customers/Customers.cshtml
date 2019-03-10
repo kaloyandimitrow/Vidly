@@ -17,6 +17,7 @@ else
 			<tr>
 				<th>#</th>
 				<th>Name</th>
+				<th>Discount Rate</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -24,7 +25,8 @@ else
 			{
 			<tr>
 				<td>@cust.Id</td>
-				<td>@Html.ActionLink(@cust.Name,"Details", "Customers", new {id =@cust.Id}, null)</td>
+				<td>@Html.ActionLink(@cust.Name, "Details", "Customers", new { id = @cust.Id }, null)</td>
+				<td>@cust.MembershipType.Name</td>
 			</tr>
 			}
 		</tbody>
