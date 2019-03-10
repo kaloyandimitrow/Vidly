@@ -23,6 +23,24 @@ namespace Vidly.Controllers
 			_context.Dispose();
 		}
 
+		public ActionResult New()
+		{
+			var membershipTypes = _context.MembershipTypes.ToList();
+			var vm = new NewCustomerViewModel
+			{
+				MembershipTypes = membershipTypes
+			};
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult Create(Customer customer)
+		{
+			_context.Customers.Add(customer);
+			_context.SaveChanges();
+			return RedirectToAction("Customers", "Customers");
+		}
+
 		// GET: Customers
 		[Route("customers")]
         public ActionResult Customers()
