@@ -227,6 +227,10 @@
     <Compile Include="Migrations\201903101403003_AddGenreIdToMovieModel.Designer.cs">
       <DependentUpon>201903101403003_AddGenreIdToMovieModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903110821453_ModelChanges.cs" />
+    <Compile Include="Migrations\201903110821453_ModelChanges.Designer.cs">
+      <DependentUpon>201903110821453_ModelChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -234,6 +238,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -391,6 +396,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903101403003_AddGenreIdToMovieModel.resx">
       <DependentUpon>201903101403003_AddGenreIdToMovieModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903110821453_ModelChanges.resx">
+      <DependentUpon>201903110821453_ModelChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
