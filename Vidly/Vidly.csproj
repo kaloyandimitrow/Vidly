@@ -231,6 +231,14 @@
     <Compile Include="Migrations\201903110821453_ModelChanges.Designer.cs">
       <DependentUpon>201903110821453_ModelChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903110853067_AddingRangeToNumerInStock.cs" />
+    <Compile Include="Migrations\201903110853067_AddingRangeToNumerInStock.Designer.cs">
+      <DependentUpon>201903110853067_AddingRangeToNumerInStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903110854415_MakingMovieNameRequired.cs" />
+    <Compile Include="Migrations\201903110854415_MakingMovieNameRequired.Designer.cs">
+      <DependentUpon>201903110854415_MakingMovieNameRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -399,6 +407,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903110821453_ModelChanges.resx">
       <DependentUpon>201903110821453_ModelChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903110853067_AddingRangeToNumerInStock.resx">
+      <DependentUpon>201903110853067_AddingRangeToNumerInStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903110854415_MakingMovieNameRequired.resx">
+      <DependentUpon>201903110854415_MakingMovieNameRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
